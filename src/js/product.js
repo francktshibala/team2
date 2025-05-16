@@ -22,11 +22,3 @@ cartCount.render();
 //   .addEventListener("click", addToCartHandler);
 
 
-dynamic-product-list
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
-// trying the branch rule
-
-main

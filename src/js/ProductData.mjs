@@ -1,21 +1,21 @@
-import { convertToJson } from './utils.mjs';
+function convertToJson(res) {
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Bad Response");
+  }
+}
 
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `../json/${category}.json`;
+    this.path = `../json/${this.category}.json`;
   }
-
-  async getData() {
-    // Fetch the data from the JSON file
-    const response = await fetch(this.path);
-    const data = await convertToJson(response);
-    
-    // For tents.json, it's a direct array
-    // For other JSONs like backpacks and sleeping-bags, the data is in a Result property
-    return Array.isArray(data) ? data : data.Result;
+  getData() {
+    return fetch(this.path)
+      .then(convertToJson)
+      .then((data) => data);
   }
-
   async findProductById(id) {
     const products = await this.getData();
     return products.find((item) => item.Id === id);
