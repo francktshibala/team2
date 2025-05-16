@@ -1,14 +1,10 @@
 
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-import CartCount from "./CartCount.mjs";
 
 const dataSource = new ProductData("tents");
 const productID = getParam("product");
 
-
-const cartCount = new CartCount(document.querySelector(".cart"));
-cartCount.render();
 
 // // add to cart button event handler
 // async function addToCartHandler(e) {
