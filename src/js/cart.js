@@ -1,8 +1,4 @@
 import { getLocalStorage } from "./utils.mjs";
-import CartCount from "./CartCount.mjs";
-
-const cartCount = new CartCount(document.querySelector(".cart"));
-cartCount.render();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
