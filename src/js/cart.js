@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -21,19 +21,4 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-function addToCart(item) {
-  const cartItems = getLocalStorage("so-cart");
-  const existingItem = cartItems.find((cartItem) => cartItem.Id === item.Id);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    item.quantity = 1;
-    cartItems.push(item);
-  }
-  setLocalStorage("so-cart", cartItems);
-  renderCartContents();
-}
-
 renderCartContents();
-
-export { addToCart };
