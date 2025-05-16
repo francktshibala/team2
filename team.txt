@@ -1,4 +1,13 @@
+Trello: https://trello.com/b/tteb6hYa/team2
+
 Franck Tshibala
-https://trello.com/invite/b/681bab3427e39edb4d628e27/ATTId2d59debd4b2607a93a1b78a5ac64762FBFCCB15/team2
 
 Madison Thomas
+<<<<<<< shewandagn--branch-test
+Shewandagn S. Woyesa
+=======
+
+Wesley Raymundo
+>>>>>>> main
+
+
