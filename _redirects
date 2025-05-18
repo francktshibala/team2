@@ -1,0 +1,8 @@
+# Redirects for Netlify
+# This file provides fallback behavior if netlify.toml isn't working correctly
+
+# Handle single page app routing
+/*    /index.html   200
+
+# Specific handling for product pages
+/product_pages/*  /product_pages/index.html  200

@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  command = "echo 'No build command needed'"
+
+[context.production.environment]
+  VITE_SERVER_URL = "https://wdd330-backend.onrender.com/"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  conditions = {Path = ["/index.html", "/cart/*", "/product_pages/*", "/css/*", "/js/*", "/images/*"]}
+  
+[[redirects]]
+  from = "/product_pages/*"
+  to = "/product_pages/index.html"
+  status = 200
+  
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "no-cache"
