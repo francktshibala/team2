@@ -1,0 +1,26 @@
+# Simple configuration for a static site
+[build]
+  # Since this is likely a static site without a build step
+  publish = "."
+  command = ""
+
+# Environment variables
+[context.production.environment]
+  VITE_SERVER_URL = "https://wdd330-backend.onrender.com/"
+
+# Redirect rules
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/product_pages/*"
+  to = "/product_pages/index.html"
+  status = 200
+
+# Cache headers
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Cache-Control = "no-cache"
