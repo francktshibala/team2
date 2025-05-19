@@ -31,4 +31,8 @@ export default class CartCount {
         
         this.countElement.textContent = count;
     }
+
+    listenForUpdates(eventName = 'cartUpdated') {
+        window.addEventListener(eventName, () => this.updateCount());
+    }
 }

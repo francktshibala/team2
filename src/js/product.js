@@ -11,6 +11,7 @@ product.init();
 
 const cartCount = new CartCount(document.querySelector(".cart"));
 cartCount.render();
+cartCount.listenForUpdates();
 
 // // add to cart button event handler
 // async function addToCartHandler(e) {

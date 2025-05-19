@@ -25,6 +25,8 @@ export default class ProductDetails {
         const cartItems = getLocalStorage("so-cart") || [];
         cartItems.push(this.product);
         setLocalStorage("so-cart", cartItems);
+
+        window.dispatchEvent(new CustomEvent('cartUpdated'));
       }
 
     renderProductDetails() {

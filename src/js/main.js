@@ -10,3 +10,4 @@ productList.init();
 
 const cartCount = new CartCount(document.querySelector(".cart"));
 cartCount.render();
+cartCount.listenForUpdates();
