@@ -1,15 +1,15 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-    return `<li class="product-card">
-      <a href="product_pages/?product=${product.Id}">
-        <img src="${product.Image}" alt="Image of ${product.Name}" class="product-card__image">
-        <h2 class="card__brand">${product.Brand.Name}</h2>
-        <h3 class="card__name">${product.Name}</h3>
-        <p class="product-card__price">$${product.FinalPrice}</p>
-      </a>
-    </li>`
-  }
+  return `<li class="product-card">
+    <a href="/product_pages/?product=${product.Id}">
+      <img src="${product.Image}" alt="Image of ${product.Name}" class="product-card__image">
+      <h2 class="card__brand">${product.Brand.Name}</h2>
+      <h3 class="card__name">${product.Name}</h3>
+      <p class="product-card__price">$${product.FinalPrice}</p>
+    </a>
+  </li>`
+}
 
 export default class ProductList {
     constructor(category, dataSource, listElement) {
@@ -24,9 +24,6 @@ export default class ProductList {
     }
 
     renderList(list) {
-        // const htmlStrings = list.map(productCardTemplate);
-        // this.listElement.insertAdjacentHTML('afterbegin', htmlStrings.join(''));
-
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
 }
