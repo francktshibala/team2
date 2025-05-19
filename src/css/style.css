@@ -273,3 +273,27 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+
+/* Cart styling */
+.cart-empty {
+  text-align: center;
+  padding: 2em;
+  font-size: 1.2em;
+  color: var(--dark-grey);
+}
+
+.cart-card__error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Add a checkout button for the cart page */
+.checkout-button {
+  margin-top: 1rem;
+}
+
+/* Hide checkout button when cart is empty */
+.hide {
+  display: none;
+}
