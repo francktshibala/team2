@@ -3,6 +3,7 @@ import CartCount from "./CartCount.mjs";
 
 const cartCount = new CartCount(document.querySelector(".cart"));
 cartCount.render();
+cartCount.listenForUpdates();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
