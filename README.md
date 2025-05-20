@@ -24,7 +24,7 @@
 _BYU-Pathway Worldwide improves lives through access to spiritually based, online affordable higher education. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities._
 
 website url
-https://bright-youtiao-3d5868.netlify.app/
+https://rainbow-croissant-e3b5bf.netlify.app/
 
 
 
