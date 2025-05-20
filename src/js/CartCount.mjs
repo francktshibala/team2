@@ -50,4 +50,8 @@ export default class CartCount {
     listenForUpdates(eventName = 'cartUpdated') {
         window.addEventListener(eventName, () => this.updateCount());
     }
+
+    listenForUpdates(eventName = 'cartUpdated') {
+        window.addEventListener(eventName, () => this.updateCount());
+    }
 }

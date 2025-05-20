@@ -33,6 +33,7 @@ export default class ProductDetails {
     }
 
     addProductToCart() {
+
         try {
             console.log("Adding to cart:", this.product.Name);
             
@@ -58,7 +59,6 @@ export default class ProductDetails {
         } catch (error) {
             console.error("Error adding to cart:", error);
         }
-    }
 
     renderProductDetails() {
         try {
