@@ -18,10 +18,12 @@ document.addEventListener("headerfooterloaded", () => {
 // Function to display cart items
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-  
-  // Find the product list element
+
+
+  // Select the product list element
+
   const productListElement = document.querySelector(".product-list");
-  
+
   // Check if there are items in the cart
   if (cartItems && cartItems.length > 0) {
     // Create HTML for each item and join them
@@ -60,4 +62,9 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+
 }
+
+// Call the render function when the page loads
+renderCartContents();
+
