@@ -59,6 +59,7 @@ export default class ProductDetails {
         } catch (error) {
             console.error("Error adding to cart:", error);
         }
+    }
 
     renderProductDetails() {
         try {
