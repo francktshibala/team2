@@ -1,31 +1,43 @@
-// Updated cart.js file with fixed links
-
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 import CartCount from "./CartCount.mjs";
 
-const cartCount = new CartCount(document.querySelector(".cart"));
-cartCount.render();
-cartCount.listenForUpdates();
+// 1. Load the header and footer
+loadHeaderFooter();
 
+// 2. Wait for them to finish loading
+document.addEventListener("headerfooterloaded", () => {
+  // 3. Set up the cart count
+  const cartCount = new CartCount(document.querySelector(".cart"));
+  cartCount.render();
+  cartCount.listenForUpdates();
+  
+  // 4. Render the cart contents
+  renderCartContents();
+});
+
+// Function to display cart items
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
 
+
   // Select the product list element
+
   const productListElement = document.querySelector(".product-list");
 
   // Check if there are items in the cart
   if (cartItems && cartItems.length > 0) {
-    // Map each item to its HTML template and join them
+    // Create HTML for each item and join them
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     productListElement.innerHTML = htmlItems.join("");
   } else {
-    // Display a message if the cart is empty
+    // Show empty cart message
     productListElement.innerHTML = `<li class="cart-empty">Your cart is empty</li>`;
   }
 }
 
+// Function to create HTML for one cart item
 function cartItemTemplate(item) {
-  // Check if the item has all the required properties
+  // Check if the item has all required information
   if (!item || !item.Image || !item.Name || !item.Colors || !item.FinalPrice) {
     console.error("Invalid item in cart:", item);
     return `<li class="cart-card divider">
@@ -33,6 +45,7 @@ function cartItemTemplate(item) {
     </li>`;
   }
 
+  // Create HTML for the item
   const newItem = `<li class="cart-card divider">
   <a href="/product_pages/?product=${item.Id}" class="cart-card__image">
     <img
@@ -49,7 +62,9 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+
 }
 
 // Call the render function when the page loads
 renderCartContents();
+

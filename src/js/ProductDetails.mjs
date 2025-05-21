@@ -33,7 +33,6 @@ export default class ProductDetails {
     }
 
     addProductToCart() {
-
         try {
             console.log("Adding to cart:", this.product.Name);
             
@@ -46,14 +45,11 @@ export default class ProductDetails {
             // Save updated cart back to localStorage
             setLocalStorage("so-cart", cartItems);
             
+            // Dispatch an event to notify other parts of the application
+            document.dispatchEvent(new CustomEvent("cartUpdated"));
+            
             // Optional: Show confirmation to user
             alert(`${this.product.Name} has been added to your cart!`);
-            
-            // Update cart count display if it exists
-            const cartCount = document.querySelector(".cart-count");
-            if (cartCount) {
-                cartCount.textContent = cartItems.length;
-            }
             
             console.log("Cart updated. New count:", cartItems.length);
         } catch (error) {

@@ -93,3 +93,62 @@ export function renderListWithTemplate(template, parentElement, list, position =
     console.error("Error in renderListWithTemplate:", error);
   }
 }
+
+// Keep all your existing functions here...
+
+// New functions to add:
+
+// This function gets HTML from a file
+// Think of it like asking a friend to bring you a document
+export async function loadTemplate(path) {
+  // Go to the file location (path)
+  const res = await fetch(path);
+  // Convert the response to text (HTML)
+  const template = await res.text();
+  // Return the HTML
+  return template;
+}
+
+// This function puts the template into the page
+// Like pasting the content onto the page
+export function renderWithTemplate(template, parentElement, data, callback) {
+  // Put the template inside the parent element
+  parentElement.innerHTML = template;
+  
+  // If there's a callback function, run it
+  // This is optional - for special things we might need to do after inserting the template
+  if(callback) {
+    callback(data);
+  }
+}
+
+// This function loads both header and footer
+// Think of it as our main helper that puts everything together
+export async function loadHeaderFooter() {
+  try {
+    // 1. Load the header template
+    const headerTemplate = await loadTemplate("/partials/header.html");
+    
+    // 2. Find where to put the header on the page
+    const headerElement = document.getElementById("main-header");
+    
+    // 3. Insert the header
+    renderWithTemplate(headerTemplate, headerElement);
+    
+    // 4. Load the footer template
+    const footerTemplate = await loadTemplate("/partials/footer.html");
+    
+    // 5. Find where to put the footer
+    const footerElement = document.getElementById("main-footer");
+    
+    // 6. Insert the footer
+    renderWithTemplate(footerTemplate, footerElement);
+    
+    // 7. Tell the page we're done loading header and footer
+    // This is like announcing "dinner is ready!" so other parts of the code know they can start
+    const event = new CustomEvent("headerfooterloaded");
+    document.dispatchEvent(event);
+  } catch (error) {
+    console.error("Error loading header and footer:", error);
+  }
+}
