@@ -9,10 +9,10 @@ cartCount.listenForUpdates();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-  
+
   // Select the product list element
   const productListElement = document.querySelector(".product-list");
-  
+
   // Check if there are items in the cart
   if (cartItems && cartItems.length > 0) {
     // Map each item to its HTML template and join them
