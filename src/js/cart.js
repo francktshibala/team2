@@ -1,5 +1,7 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 import CartCount from "./CartCount.mjs";
+
+loadHeaderFooter();
 
 const cartCount = new CartCount(document.querySelector(".cart"));
 cartCount.render();
