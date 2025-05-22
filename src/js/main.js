@@ -1,5 +1,3 @@
-import ProductData from "./ProductData.mjs";
-import ProductList from "./ProductList.mjs";
 import CartCount from "./CartCount.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
@@ -13,10 +11,3 @@ document.addEventListener("headerfooterloaded", () => {
   const cartCount = new CartCount(document.querySelector(".cart"));
   cartCount.render();
 });
-
-// 4. The rest of the code for listing products stays the same
-const dataSource = new ProductData("tents");
-const element = document.querySelector(".product-list");
-
-const productList = new ProductList("Tents", dataSource, element);
-productList.init();
