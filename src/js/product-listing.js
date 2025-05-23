@@ -21,3 +21,9 @@ const element = document.querySelector(".product-list");
 
 const productList = new ProductList(category, dataSource, element);
 productList.init();
+
+const title = document.querySelector("title");
+const heading = document.querySelector("h2");
+const categoryText = category.replace("-", " ").split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+heading.textContent = "Top Products: " + categoryText;
+title.textContent = `Sleep Outside | ${categoryText}`;
