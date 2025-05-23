@@ -25,18 +25,22 @@ productList.init();
 
 const title = document.querySelector("title");
 const heading = document.querySelector("h2");
-const categoryText = category.replace("-", " ").split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+const categoryText = category
+  .replace("-", " ")
+  .split(" ")
+  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(" ");
 heading.textContent = "Top Products: " + categoryText;
 title.textContent = `Sleep Outside | ${categoryText}`;
 
 // set up sorting dropdown
 const sortOptions = [
-  {value: "default", text: ""},
-  {value: "name-a-z", text: "Name: A → Z"},
-  {value: "name-z-a", text: "Name: Z → A"},
-  {value: "price-low-to-high", text: "Price: Low to High"},
-  {value: "price-high-to-low", text: "Price: High to Low"}
-]
+  { value: "default", text: "" },
+  { value: "name-a-z", text: "Name: A → Z" },
+  { value: "name-z-a", text: "Name: Z → A" },
+  { value: "price-low-to-high", text: "Price: Low to High" },
+  { value: "price-high-to-low", text: "Price: High to Low" },
+];
 
 const select = document.createElement("select");
 const sortLabel = document.createElement("label");
@@ -47,15 +51,15 @@ select.id = "sortSelect";
 select.name = "sortSelect";
 
 sortOptions.forEach((option) => {
-    const optionElement = document.createElement("option");
-    optionElement.value = option.value;
-    optionElement.text = option.text;
-    select.add(optionElement);
+  const optionElement = document.createElement("option");
+  optionElement.value = option.value;
+  optionElement.text = option.text;
+  select.add(optionElement);
 });
 document.querySelector("#sortContainer").appendChild(select);
 
 const sortSelect = document.getElementById("sortSelect");
 sortSelect.addEventListener("change", () => {
-    const sorted = sortProducts(productList.products, sortSelect.value);
-    productList.renderList(sorted);
+  const sorted = sortProducts(productList.products, sortSelect.value);
+  productList.renderList(sorted);
 });
