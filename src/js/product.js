@@ -14,7 +14,7 @@ document.addEventListener("headerfooterloaded", () => {
 });
 
 // 4. The rest of the product details code stays the same
-const dataSource = new ProductData("tents");
+const dataSource = new ProductData();
 const productID = getParam("product");
 
 const product = new ProductDetails(productID, dataSource);
