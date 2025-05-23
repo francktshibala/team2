@@ -10,7 +10,7 @@ document.addEventListener("headerfooterloaded", () => {
   const cartCount = new CartCount(document.querySelector(".cart"));
   cartCount.render();
   cartCount.listenForUpdates();
-  
+
   // 4. Render the cart contents
   renderCartContents();
 });
@@ -18,7 +18,6 @@ document.addEventListener("headerfooterloaded", () => {
 // Function to display cart items
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-
 
   // Select the product list element
 
@@ -62,9 +61,7 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
-
 }
 
 // Call the render function when the page loads
 renderCartContents();
-

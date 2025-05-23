@@ -187,11 +187,13 @@ button {
 .category-grid a:hover {
   color: var(--tertiary-color);
   text-decoration: underline;
-  transition: color 0.3s, text-decoration 0.3s,
+  transition:
+    color 0.3s,
+    text-decoration 0.3s;
 }
 
 .category-grid img {
-  width: min(100px, 90%)
+  width: min(100px, 90%);
 }
 
 .products {
@@ -210,8 +212,6 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
-
-
 
 /* Styles for product lists */
 .product-card {
