@@ -15,8 +15,9 @@ document.addEventListener("headerfooterloaded", () => {
 });
 
 // 4. The rest of the code for listing products stays the same
-const dataSource = new ProductData("tents");
+const category = getParam("category");
+const dataSource = new ProductData();
 const element = document.querySelector(".product-list");
 
-const productList = new ProductList("Tents", dataSource, element);
+const productList = new ProductList(category, dataSource, element);
 productList.init();
