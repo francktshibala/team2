@@ -1,7 +1,7 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import CartCount from "./CartCount.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, getParam } from "./utils.mjs";
 
 // 1. Call our function to load the header and footer
 loadHeaderFooter();
