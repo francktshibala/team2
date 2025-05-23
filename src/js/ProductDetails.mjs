@@ -71,8 +71,9 @@ export default class ProductDetails {
 
             const image = document.getElementById('product-image');
             if (image) {
-                image.src = this.product.Image;
+                image.src = this.product.Images.PrimaryLarge;
                 image.alt = this.product.NameWithoutBrand;
+                image.loading = "lazy";
             }
 
             const priceElement = document.querySelector('p.product-card__price');
