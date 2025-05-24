@@ -23,14 +23,30 @@
         </ul>
         <!-- Add a checkout button -->
         <div class="checkout-button">
-          <button id="checkout" onclick="window.location.href='/checkout/index.html'">Checkout</button>
+          <button
+            id="checkout"
+            onclick="window.location.href='/checkout/index.html'"
+          >
+            Checkout
+          </button>
         </div>
       </section>
     </main>
 
-    <!-- This footer will be replaced with our template -->
-    <footer id="main-footer">
-      <!-- Footer content will be loaded dynamically -->
-    </footer>
+    <script>
+      // Simple script to hide checkout button when cart is empty
+      document.addEventListener("DOMContentLoaded", function () {
+        const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
+        const checkoutButton = document.querySelector(".checkout-button");
+
+        if (!cart.length) {
+          checkoutButton.classList.add("hide");
+        } else {
+          checkoutButton.classList.remove("hide");
+        }
+      });
+    </script>
+
+    <footer>&copy;NOT a real business</footer>
   </body>
 </html>

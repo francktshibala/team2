@@ -10,7 +10,7 @@ document.addEventListener("headerfooterloaded", () => {
   const cartCount = new CartCount(document.querySelector(".cart"));
   cartCount.render();
   cartCount.listenForUpdates();
-  
+
   // 4. Render the cart contents
   renderCartContents();
 });
@@ -18,10 +18,11 @@ document.addEventListener("headerfooterloaded", () => {
 // Function to display cart items
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
-  
-  // Find the product list element
+
+  // Select the product list element
+
   const productListElement = document.querySelector(".product-list");
-  
+
   // Check if there are items in the cart
   if (cartItems && cartItems.length > 0) {
     // Create HTML for each item and join them
@@ -61,3 +62,6 @@ function cartItemTemplate(item) {
 
   return newItem;
 }
+
+// Call the render function when the page loads
+renderCartContents();
