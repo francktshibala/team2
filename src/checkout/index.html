@@ -4,9 +4,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Cart</title>
+    <title>Sleep Outside | Checkout</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="../js/cart.js" type="module"></script>
+    <script src="../js/checkout.js" type="module"></script>
   </head>
 
   <body>
@@ -17,14 +17,16 @@
 
     <main class="divider">
       <section class="products">
-        <h2>My Cart</h2>
-        <ul class="product-list">
-          <!-- Cart items will be inserted here by JavaScript -->
-        </ul>
-        <!-- Add a checkout button -->
-        <div class="checkout-button">
-          <button id="checkout" onclick="window.location.href='/checkout/index.html'">Checkout</button>
-        </div>
+        <h2>Review & Place your Order</h2>
+        <form class="checkout">
+          <fieldset class="checkout-summary">
+            <legend>Order Summary</legend>
+            <ul class="product-list">
+              <!-- Cart items will be inserted here by JavaScript -->
+            </ul>
+            <p class="order-total">Total: $<span id="order-total">0.00</span></p>
+          </fieldset>
+        </form>
       </section>
     </main>
 
