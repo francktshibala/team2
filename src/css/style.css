@@ -372,3 +372,17 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+.discount-flag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 4px;
+  display: none; /* hide by default */
+}
+.product-image-container {
+  position: relative; /* for absolute positioning of flag */
+}
